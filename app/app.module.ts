@@ -43,3 +43,9 @@ import {EventRouteActivator} from "./events/event-details/event-route-activator.
 })
 
 export class AppModule {}
+
+function checkDirtyState(component: CreateEventComponent) {
+    if(component.isDirty)
+        return window.confirm('Do you really want to leave this page without saving?')
+    return true
+}
