@@ -14,8 +14,8 @@ import { Router } from '@angular/router'
         .error :-moz-placeholder {color: #999;}
         .error :-ms-input-placeholder {color: #999;}
     `]
-})
-export class ProfileComponent implements OnInit {
+    })
+    export class ProfileComponent implements OnInit {
     profileForm:FormGroup
     private firstName:FormControl
     private lastName:FormControl
@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
 
     ngOnInit() {
         this.firstName = new FormControl
-        (this.authService.currentUser.firstName, Validators.required);
+        (this.authService.currentUser.firstName, [Validators.required, Validators.pattern('[a-zA-Z].*')]);
         this.lastName = new FormControl
         (this.authService.currentUser.lastName, Validators.required);
         this.profileForm = new FormGroup({
